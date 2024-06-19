@@ -231,16 +231,16 @@ void AStazZagadkaGameMode::LoseCondition()
 
 void AStazZagadkaGameMode::WinCondition()
 {
-	int NumOfUsedBeetles = 0;
-	for (AVertex* Beetle : Vertices)
+	int NumOfUsedVertices = 0;
+	for (AVertex* Vertex : Vertices)
 	{
-		if (Beetle->VertexStatus == EVertexStatus::InUse || Beetle->VertexStatus == EVertexStatus::Used)
+		if (Vertex->VertexStatus == EVertexStatus::InUse || Vertex->VertexStatus == EVertexStatus::Used)
 		{
-			NumOfUsedBeetles++;
+			NumOfUsedVertices++;
 		}
 	}
 
-	if (NumOfUsedBeetles == Vertices.Num())
+	if (NumOfUsedVertices == Vertices.Num())
 	{
 		GameWon = true;
 		UpdateMusic();
